@@ -271,18 +271,16 @@ class Aliyun_Log_SimpleLogger{
         $request = new Aliyun_Log_Models_PutLogsRequest($this->project, $this->logstore,
             $topic, $ip, $logItems);
         $error_exception = NULL;
-        for($i = 0 ;  $i < 3 ; $i++)
-        {
-            try{
-                $response = $this->client->putLogs($request);
-                return;
-            } catch (Aliyun_Log_Exception $ex) {
-                $error_exception = $ex;
-            } catch (Exception $ex) {
-                var_dump($ex);
-                $error_exception = $ex;
-            }
+        try{
+            $response = $this->client->putLogs($request);
+            return;
+        } catch (Aliyun_Log_Exception $ex) {
+            $error_exception = $ex;
+        } catch (Exception $ex) {
+            var_dump($ex);
+            $error_exception = $ex;
         }
+
         if ($error_exception != NULL)
         {
             var_dump($error_exception);
