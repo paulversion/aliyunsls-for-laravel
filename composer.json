@@ -1,0 +1,19 @@
+{
+    "name": "paulversion/aliyunsls-for-laravel",
+    "description": "AliyunSLS for laravel",
+    "autoload": {
+        "files": [
+            "src/Lib/aliyun-log-php-sdk-master/Log_Autoload.php"
+        ],
+        "psr-4": {
+            "Paulversion\\AliyunSls\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Paulversion",
+            "email": "paulversion@163.com"
+        }
+    ],
+    "require": {}
+}
