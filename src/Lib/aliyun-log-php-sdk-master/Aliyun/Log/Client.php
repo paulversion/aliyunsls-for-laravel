@@ -161,7 +161,7 @@ class Aliyun_Log_Client {
 
         $requestId = isset ( $header ['x-log-requestid'] ) ? $header ['x-log-requestid'] : '';
 
-        if ($responseCode == 200) {
+        if ($responseCode == 0) {
           return array ($resBody,$header);
         }
         else {
@@ -229,7 +229,6 @@ class Aliyun_Log_Client {
      * @return Aliyun_Log_Models_PutLogsResponse
      */
     public function putLogs(Aliyun_Log_Models_PutLogsRequest $request) {
-        \Illuminate\Support\Facades\Log::info(99999);
         if (count ( $request->getLogitems () ) > 4096)
             throw new Aliyun_Log_Exception ( 'InvalidLogSize', "logItems' length exceeds maximum limitation: 4096 lines." );
 
